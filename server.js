@@ -11,7 +11,7 @@ const dotenv = require('dotenv').config()
 const path = require('path')
 
 const PORT = process.env.NODE_ENV || 5000
-const host = '0.0.0.0'
+
 
 mongoose.Promise = global.Promise
 
@@ -39,4 +39,6 @@ app.use('/users', userRoute)
 app.use('/destinations', destinationRoute)
 app.use('/booking', bookingRoute)
 app.use('/upload', uploadRoute)
-app.listen(PORT, host, () => console.log(`Server running on port ${PORT}`))
+
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

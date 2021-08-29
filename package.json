@@ -1,10 +1,10 @@
 {
   "name": "tourism-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
