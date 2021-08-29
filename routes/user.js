@@ -6,7 +6,7 @@ const user = require('../controller/user')
 //user form
 router.get('/', user.getUsers)
 router.post('/register', user.postUser)
-router.get('/:userId', user.getUsers)
+router.get('/:userId', user.getSingleUser)
 router.put('/update/:userId', user.editUser)
 router.delete('/:userId', user.removeUser)
 
