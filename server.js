@@ -8,6 +8,7 @@ const uploadRoute = require('./controller/imageUpload')
 const bookingRoute = require('./routes/booking')
 const cors = require('cors')
 const dotenv = require('dotenv').config()
+const path = require('path')
 
 const PORT = process.env.NODE_ENV || 5000
 
@@ -25,7 +26,9 @@ mongoose.connect(
 
 //allow cross origin resource sharing
 app.use(cors())
+
 //form processing
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
