@@ -11,6 +11,8 @@ const dotenv = require('dotenv').config()
 
 const PORT = process.env.NODE_ENV || 5000
 
+mongoose.Promise = global.Promise
+
 //db connection
 mongoose.connect(
     process.env.NODE_ENV === 'production' ? process.env.MONGO_URI_PROD : process.env.MONGO_URI_DEV,
