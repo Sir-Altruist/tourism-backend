@@ -36,7 +36,7 @@ exports.getDestinations = async (req, res) => {
     try {
         const destinations = await Destination.find().sort({createdAt: -1})
         if(destinations){
-            return res.status(200).json({count: destinations.length, destinations})
+            return res.status(200).json(destinations)
         }
     }
     catch (error) {
