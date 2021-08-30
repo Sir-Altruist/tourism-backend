@@ -6,5 +6,6 @@ router.get('/', destination.getDestinations)
 router.post('/add', destination.postDestination)
 router.get('/:destinationId', destination.getSingleDestination)
 router.put('/update/:destinationId', destination.editDestination)
+router.delete('/:destinationId', destination.removeDestination)
 
 module.exports = router

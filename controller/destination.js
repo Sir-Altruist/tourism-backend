@@ -36,7 +36,7 @@ exports.getDestinations = async (req, res) => {
     try {
         const destinations = await Destination.find().sort({createdAt: -1})
         if(destinations){
-            return res.status(200).json(destinations)
+            return res.status(200).json({count: destinations.length, destinations})
         }
     }
     catch (error) {
@@ -80,6 +80,19 @@ exports.editDestination = async (req, res) => {
             if(destination){
                 return res.status(200).json({msg: 'Destination updated successfully!'})
             }
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.removeDestination = async (req, res) => {
+    try {
+         
+        const id = req.params.destinationId
+        const deleteSuccess = await Destination.deleteOne({_id: id})
+        if(deleteSuccess) {
+            return res.status(200).json({msg: 'Destination successfully deleted'})
         }
     } catch (error) {
         console.log(error)

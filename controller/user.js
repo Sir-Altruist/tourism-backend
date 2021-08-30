@@ -51,7 +51,7 @@ exports.getUsers = async (req, res) => {
     try {
         const users = await User.find().sort({createdAt: -1}).select('-password -phone')
         if(users){
-            return res.status(200).json(users)
+            return res.status(200).json({count: users.length, users})
         }
     }
     catch (error) {
