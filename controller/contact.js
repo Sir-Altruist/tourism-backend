@@ -23,5 +23,29 @@ exports.postContact = async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-    
 }
+
+exports.getContact = async (req, res) => {
+    try {
+
+        const allContacts = await Contact.find().sort({createdAt: -1})
+        if(allContacts){
+            return res.status(200).json(allContacts)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.getSingleContact = async (req, res) => {
+    try {
+        const id = req.params.contactId
+        const singleContact = await Contact.findById(id)
+        if(singleContact){
+            return res.status(200).json(singleContact)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+

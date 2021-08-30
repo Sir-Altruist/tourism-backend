@@ -3,10 +3,10 @@ const Destination = require('../Model/Destination')
 exports.postDestination = async (req, res) => {
     try {
 
-        const { name, location, duration, price, description, information, gallery, plan, facility } = req.body
+        const { name, location, duration, price, description, information, rating, gallery, plan, facility } = req.body
 
         //Checks for empty required fields
-        if(!name || !location || !duration || !price || !description || !information || !gallery){
+        if(!name || !location || !duration || !price || !description || !information || !rating || !gallery){
             res.status(400).json('Please fill the required fields')
         }
 
@@ -17,6 +17,7 @@ exports.postDestination = async (req, res) => {
             price,
             description,
             information,
+            rating,
             gallery,
             plan,
             facility

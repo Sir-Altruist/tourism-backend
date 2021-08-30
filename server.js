@@ -40,5 +40,9 @@ app.use('/destinations', destinationRoute)
 app.use('/booking', bookingRoute)
 app.use('/upload', uploadRoute)
 
+app.get('/paypal', (req, res) => {
+    res.send(process.env.PAYPAL_CLIENT_ID)
+})
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
