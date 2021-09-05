@@ -8,8 +8,8 @@ exports.postBooking = async (req, res) => {
         if(!destination){
             return res.json(404).json({msg: 'The requested destination does not exist!'})
         }
-         const { name, email, phone, people, message } = req.body
-        if(!name || !email || !phone || !people || !message) {
+         const { name, email, phone, message, nights, b_hotel_people, b_hotel_name, b_hotel_price, total_price } = req.body
+        if(!name || !email || !phone || !message || !nights || !b_hotel_people || !b_hotel_name || !b_hotel_price || !total_price) {
             return res.status(400).json({msg: 'Please fill all fields'})
         }
 
@@ -17,8 +17,12 @@ exports.postBooking = async (req, res) => {
             name,
             email,
             phone,
-            people,
             message,
+            nights,
+            b_hotel_people,
+            b_hotel_name,
+            b_hotel_price,
+            total_price,
             destination_id: requestId
         })
 

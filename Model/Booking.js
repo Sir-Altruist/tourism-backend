@@ -14,19 +14,36 @@ const BookingSchema = new Schema({
         type: String,
         required: true
     },
-    people: {
+    message: {
+        type: String,
+        required: true
+    },
+    nights: {
         type: Number,
         required: true
     },
-    message: {
-        type: String,
+    total_price: {
+        type: Number,
         required: true
     },
     destination_id: {
         type: Schema.Types.ObjectId,
         ref: 'destination',
         required: true
+    },
+    b_hotel_people: {
+        type: Number,
+        required: true
+    },
+    b_hotel_name: {
+        type: String,
+        required: true
+    },
+    b_hotel_price: {
+        type: Number,
+        required: true
     }
+
 }, {
     timestamps: true
 })
