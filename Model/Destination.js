@@ -55,11 +55,11 @@ const DestinationSchema = new Schema({
         required: true
     },
     p_hotel_rating: {
-        type: Number,
+        type: String,
         required: true
     },
     p_hotel_price: {
-        type: Number,
+        type: String,
         required: true
     },
     p_hotel_gallery: {

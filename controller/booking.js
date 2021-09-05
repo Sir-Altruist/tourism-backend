@@ -3,13 +3,30 @@ const Destination = require('../Model/Destination')
 
 exports.postBooking = async (req, res) => {
     try {
-        const requestId = req.params.destinationId
-        const destination = await Destination.findById(requestId)
-        if(!destination){
-            return res.json(404).json({msg: 'The requested destination does not exist!'})
-        }
-         const { name, email, phone, message, nights, b_hotel_people, b_hotel_name, b_hotel_price, total_price } = req.body
-        if(!name || !email || !phone || !message || !nights || !b_hotel_people || !b_hotel_name || !b_hotel_price || !total_price) {
+         const { 
+             name, 
+             email, 
+             phone, 
+             message, 
+             nights, 
+             b_hotel_people, 
+             b_hotel_name, 
+             b_hotel_price, 
+             total_price, 
+             d_id,
+            country } = req.body
+        if(
+            !name || 
+            !email || 
+            !phone || 
+            !message || 
+            !nights || 
+            !b_hotel_people || 
+            !b_hotel_name || 
+            !b_hotel_price || 
+            !total_price || 
+            !d_id ||
+            !country) {
             return res.status(400).json({msg: 'Please fill all fields'})
         }
 
@@ -23,7 +40,8 @@ exports.postBooking = async (req, res) => {
             b_hotel_name,
             b_hotel_price,
             total_price,
-            destination_id: requestId
+            d_id,
+            country
         })
 
         const success = await booking.save()

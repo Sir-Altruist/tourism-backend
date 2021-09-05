@@ -26,9 +26,8 @@ const BookingSchema = new Schema({
         type: Number,
         required: true
     },
-    destination_id: {
-        type: Schema.Types.ObjectId,
-        ref: 'destination',
+    d_id: {
+        type: String,
         required: true
     },
     b_hotel_people: {
@@ -41,6 +40,10 @@ const BookingSchema = new Schema({
     },
     b_hotel_price: {
         type: Number,
+        required: true
+    },
+    country: {
+        type: String,
         required: true
     }
 
