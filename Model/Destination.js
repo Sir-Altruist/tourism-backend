@@ -18,6 +18,10 @@ const DestinationSchema = new Schema({
         type: Number,
         required: true
     },
+    flight: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true 
@@ -35,10 +39,32 @@ const DestinationSchema = new Schema({
         required: true
     },
     plan: {
-        type: String
+        type: String,
+        required: true
     },
     facility: {
-        type: String
+        type: String,
+        required: true
+    },
+    cities: {
+        type: String,
+        required: true
+    },
+    p_hotel_name: {
+        type: String,
+        required: true
+    },
+    p_hotel_rating: {
+        type: Number,
+        required: true
+    },
+    p_hotel_price: {
+        type: Number,
+        required: true
+    },
+    p_hotel_gallery: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true

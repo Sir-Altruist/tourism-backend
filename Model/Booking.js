@@ -21,6 +21,11 @@ const BookingSchema = new Schema({
     message: {
         type: String,
         required: true
+    },
+    destination_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'destination',
+        required: true
     }
 }, {
     timestamps: true

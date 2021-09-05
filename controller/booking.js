@@ -1,28 +1,35 @@
 const Booking = require('../Model/Booking')
+const Destination = require('../Model/Destination')
 
 exports.postBooking = async (req, res) => {
     try {
-        const { name, email, phone, people, message } = req.body
+        const requestId = req.params.destinationId
+        const destination = await Destination.findById(requestId)
+        if(!destination){
+            return res.json(404).json({msg: 'The requested destination does not exist!'})
+        }
+         const { name, email, phone, people, message } = req.body
+        if(!name || !email || !phone || !people || !message) {
+            return res.status(400).json({msg: 'Please fill all fields'})
+        }
 
-    if(!name || !email || !phone || !people || !message) {
-        return res.status(400).json({msg: 'Please fill all fields'})
-    }
+        const booking = new Booking({
+            name,
+            email,
+            phone,
+            people,
+            message,
+            destination_id: requestId
+        })
 
-    const booking = new Booking({
-        name,
-        email,
-        phone,
-        people,
-        message
-    })
-
-    const success = await booking.save()
-    if(success){
-        return res.status(200).json({msg: 'Booking successful!'})
-    }
-    } catch (error) {
-        console.log(error)
-    }  
+        const success = await booking.save()
+        if(success){
+            // return res.status(200).json({msg: 'Booking successful!'})
+            return res.status(200).json(success)
+        }
+        } catch (error) {
+            console.log(error)
+        }  
 }
 
 exports.getBookings = async (req, res) => {
