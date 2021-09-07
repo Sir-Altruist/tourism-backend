@@ -65,6 +65,14 @@ const DestinationSchema = new Schema({
     p_hotel_gallery: {
         type: String,
         required: true
+    },
+    p_from: {
+        type: String,
+        required: true
+    },
+    p_to: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true

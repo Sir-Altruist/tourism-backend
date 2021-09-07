@@ -19,7 +19,9 @@ exports.postDestination = async (req, res) => {
             p_hotel_name,
             p_hotel_rating,
             p_hotel_price,
-            p_hotel_gallery
+            p_hotel_gallery,
+            p_from,
+            p_to
             } = req.body
 
         //Checks for empty required fields
@@ -39,7 +41,9 @@ exports.postDestination = async (req, res) => {
         !p_hotel_name || 
         !p_hotel_rating || 
         !p_hotel_price || 
-        !p_hotel_gallery
+        !p_hotel_gallery ||
+        !p_from ||
+        !p_to
         ){
             res.status(400).json('Please fill the required fields')
         }
@@ -60,7 +64,9 @@ exports.postDestination = async (req, res) => {
             p_hotel_name,
             p_hotel_rating,
             p_hotel_price,
-            p_hotel_gallery
+            p_hotel_gallery,
+            p_from,
+            p_to
         })
 
         const destination = await newDestination.save()
