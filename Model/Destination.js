@@ -73,6 +73,10 @@ const DestinationSchema = new Schema({
     p_to: {
         type: String,
         required: true
+    },
+    excludes: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
