@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const contactRoute = require('./routes/contact')
+const aboutRoute = require('./routes/about')
 const userRoute = require('./routes/user')
 const destinationRoute = require('./routes/destination')
 const uploadRoute = require('./controller/imageUpload')
@@ -34,6 +35,7 @@ app.use(express.urlencoded({extended: false}));
 
 
 app.use('/contact', contactRoute)
+app.use('/about', aboutRoute)
 app.use('/users', userRoute)
 app.use('/destinations', destinationRoute)
 app.use('/booking', bookingRoute)
