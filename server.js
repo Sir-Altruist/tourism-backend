@@ -28,7 +28,7 @@ mongoose.connect(
 
 
 const cors = (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Origin', 'https://travelfaro.online')
     res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
     res.header('Access-Control-Max-Age', '3600')
     res.header('Access-Control-Allow-Headers', 'Content-Type, Range')
@@ -40,6 +40,9 @@ const cors = (req, res, next) => {
 //allow cross origin resource sharing
 app.use(cors)
 
+app.options('*', (req, res) => {
+    res.send(201)
+})
 
 //form processing
 app.use(express.json());
