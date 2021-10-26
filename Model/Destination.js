@@ -3,80 +3,61 @@ const Schema = mongoose.Schema
 
 const DestinationSchema = new Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     location: {
-        type: String,
-        required: true
+        type: String
     },
     duration: {
-        type: String,
-        required: true
+        type: String
     },
     price: {
-        type: Number,
-        required: true
+        type: Number
     },
     flight: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
-        type: String,
-        required: true 
+        type: String 
     },
     information: {
-        type: String,
-        required: true
+        type: String
     },
     rating: {
-        type: Number,
-        required: true
+        type: Number
     },
     gallery: {
-        type: String,
-        required: true
+        type: String
     },
     plan: {
-        type: String,
-        required: true
+        type: String
     },
     facility: {
-        type: String,
-        required: true
+        type: String
     },
     cities: {
-        type: String,
-        required: true
+        type: String
     },
     p_hotel_name: {
-        type: String,
-        required: true
+        type: String
     },
     p_hotel_rating: {
-        type: String,
-        required: true
+        type: String
     },
     p_hotel_price: {
-        type: String,
-        required: true
+        type: String
     },
     p_hotel_gallery: {
-        type: String,
-        required: true
+        type: String
     },
     p_from: {
-        type: String,
-        required: true
+        type: String
     },
     p_to: {
-        type: String,
-        required: true
+        type: String
     },
     excludes: {
-        type: String,
-        required: true
+        type: String
     }
 }, {
     timestamps: true

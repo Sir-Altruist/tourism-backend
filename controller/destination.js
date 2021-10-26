@@ -25,31 +25,6 @@ exports.postDestination = async (req, res) => {
             excludes
             } = req.body
 
-        //Checks for empty required fields
-        if(
-        !name || 
-        !location || 
-        !duration || 
-        !price || 
-        !flight || 
-        !description || 
-        !information || 
-        !rating || 
-        !gallery || 
-        !plan || 
-        !facility || 
-        !cities ||
-        !p_hotel_name || 
-        !p_hotel_rating || 
-        !p_hotel_price || 
-        !p_hotel_gallery ||
-        !p_from ||
-        !p_to ||
-        !excludes
-        ){
-            res.status(400).json('Please fill the required fields')
-        }
-
         const newDestination = new Destination({
             name,
             location,
