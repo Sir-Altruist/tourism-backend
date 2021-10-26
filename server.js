@@ -38,7 +38,7 @@ const cors = (req, res, next) => {
   }
 
 //allow cross origin resource sharing
-// app.use(cors)
+app.use(cors)
 
 
 //form processing
